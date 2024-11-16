@@ -27,3 +27,4 @@ if arvore.melhorSolucao:
     print("Custo do melhor caminho:", arvore.melhorCusto)
 else:
     print("Nenhuma solução encontrada.")
+
