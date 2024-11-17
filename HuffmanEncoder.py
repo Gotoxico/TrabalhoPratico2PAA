@@ -10,7 +10,7 @@ class Arvore:
     def __init__(self):
         self.raiz = NoArvore()  
 
-    def adicionarNo(self, pai, simbolo, quantidade, probabilidade):
+    def _adicionarNo(self, pai, simbolo, quantidade, probabilidade):
         no = NoArvore(pai, simbolo, quantidade, probabilidade)
         pai.filhos.append(no)
         return no
@@ -27,18 +27,18 @@ class Arvore:
         
         for simbolo, quantidade in simbolos_contagem.items():
             probabilidade = quantidade / total
-            self.adicionarNo(no, simbolo, quantidade, probabilidade)
+            self._adicionarNo(no, simbolo, quantidade, probabilidade)
 
-    def tamanho(self, no):
+    def _tamanho(self, no):
         if not no.filhos:
             return 1
         else:
             tamanho = 0
             for filho in no.filhos:
-                tamanho += self.tamanho(filho)
+                tamanho += self._tamanho(filho)
             return tamanho
 
-    def retiraMenorProbabilidade(self, no):
+    def _retiraMenorProbabilidade(self, no):
         menor = None
         for filho in no.filhos:
             if not menor or filho.probabilidade < menor.probabilidade:
@@ -47,25 +47,25 @@ class Arvore:
             no.filhos.remove(menor)
         return menor
 
-    def percorreDaRaizAteAFolha(self, folha, caminho=""):
+    def _percorreDaRaizAteAFolha(self, folha, caminho=""):
         if not folha.filhos:  # Only for leaf nodes
             return {folha.simbolo: caminho}
         else:
             codificacoes = {}
             for filho in folha.filhos:
                 novo_caminho = caminho + ("0" if filho == folha.filhos[0] else "1")
-                codificacoes.update(self.percorreDaRaizAteAFolha(filho, novo_caminho))
+                codificacoes.update(self._percorreDaRaizAteAFolha(filho, novo_caminho))
             return codificacoes
 
-    def _huffmanEncoder(self, no, texto):
+    def huffmanEncoder(self, no, texto):
         self._transformarSimbolosArvore(no, texto)
 
         self.imprimirArvore(no)
 
         while len(no.filhos) > 1:
-            S0 = self.retiraMenorProbabilidade(no)
-            S1 = self.retiraMenorProbabilidade(no)
-            X = self.adicionarNo(no, S0.simbolo + S1.simbolo, S0.quantidade + S1.quantidade, S0.probabilidade + S1.probabilidade)
+            S0 = self._retiraMenorProbabilidade(no)
+            S1 = self._retiraMenorProbabilidade(no)
+            X = self._adicionarNo(no, S0.simbolo + S1.simbolo, S0.quantidade + S1.quantidade, S0.probabilidade + S1.probabilidade)
             X.filhos.append(S0)
             X.filhos.append(S1)
         
@@ -73,7 +73,7 @@ class Arvore:
 
         X = no.filhos[0]  
 
-        codigos = self.percorreDaRaizAteAFolha(X)  
+        codigos = self._percorreDaRaizAteAFolha(X)  
         for simbolo, codigo in codigos.items():
             print(f"Código para {simbolo}: {codigo}")
         
