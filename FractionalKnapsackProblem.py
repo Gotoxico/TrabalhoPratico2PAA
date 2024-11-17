@@ -1,3 +1,4 @@
+#Interpretação dos passos presente em: https://www.geeksforgeeks.org/fractional-knapsack-problem/
 class Item:
     def __init__(self, peso, valor):
         self.peso = peso
