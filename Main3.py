@@ -13,4 +13,3 @@ problema = FractionalKnapsackProblem()
 valorTotal = problema.fractionalKnapsackProblem(itens, capacidade)
 print(f"Valor total obtido: {valorTotal}")
 
-1+2+4+1+5
