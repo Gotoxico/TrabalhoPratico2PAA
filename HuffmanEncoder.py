@@ -82,7 +82,7 @@ class Arvore:
         while i < len(texto):
             simbolo = texto[i]
             if simbolo in codigos:
-                palavra = palavra + codigos[simbolo]
+                palavra = palavra + codigos[simbolo] + " "
             i += 1
         print(f"Palavra codificada: {palavra}")
         

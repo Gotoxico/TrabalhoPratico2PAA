@@ -4,7 +4,7 @@ import os
 def main():
     os.system('cls' if os.name == 'nt' else 'clear')
     print('===============================================')
-    print('| ASSIGNMENT PROBLEM                          |')
+    print('| ASSIGNMENT PROBLEM (Utilizando grafo com matriz de adjacência para representação) |')
     print('===============================================')
     print('|1 - Executar teste pronto                    |')
     print('|2 - Inserir dados manualmente                |')
@@ -96,6 +96,7 @@ def main():
                         grafo.adicionarAresta(i, j, peso)
                         print(f'Aresta {i} -> {j} adicionada com peso {peso}')
 
+        grafo.imprimirGrafo()
 
         print('\n===============================================')
         print('|Criando árvore e buscando melhor caminho      |')

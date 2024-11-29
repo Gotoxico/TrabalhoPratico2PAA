@@ -34,6 +34,12 @@ class Grafo:
                 vizinhos.append(i)
         return vizinhos
     
+    def imprimirGrafo(self):
+        for i in range(len(self.matrizAdjacencia)):
+            for j in range(len(self.matrizAdjacencia[i])):
+                if self.matrizAdjacencia[i][j].valor != 0:
+                    print(f'Vertice {i} -> {j} com peso {self.matrizAdjacencia[i][j].peso}')
+    
 class NoArvore:
     def __init__(self, pai = None, combinacao = None, custo = 0):
         self.pai = pai

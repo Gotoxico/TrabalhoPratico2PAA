@@ -21,8 +21,8 @@ def main():
 
         s1 = "CADD"
         s2 = "CBBADED"
-        print(f'Sequence 1: {s1}')
-        print(f'Sequence 2: {s2}')
+        print(f'Sequência 1: {s1}')
+        print(f'Sequência 2: {s2}')
 
         matrix = LongestCommon.getLCS(s1, s2)
         print('\nMatriz de programação dinâmica: ')

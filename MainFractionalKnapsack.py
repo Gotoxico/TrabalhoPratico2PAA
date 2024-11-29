@@ -23,12 +23,18 @@ def main():
         print(f"Capacidade da mochila: {capacidade}")
         print("Itens disponíveis: \n")
         for item in itens:
-            print(f"|Peso: {item.peso} - Valor: {item.valor}")
+            print(f"|Peso: {item.peso} - Valor: {item.valor} - Proporção (Valor/Peso): {item.valor / item.peso}")
 
         problema = FractionalKnapsackProblem()
-        valorTotal = problema.fractionalKnapsackProblem(itens, capacidade)
+        valorTotal, itensPertencentes = problema.fractionalKnapsackProblem(itens, capacidade)
         print('\n===============================================')
         print(f"|Valor total obtido: {valorTotal}")
+        print('=================================================')
+
+        print('=================================================')
+        print(f"|Itens pertencentes: ")
+        for(item) in itensPertencentes:
+            print(f"|Peso: {item.peso} - Valor: {item.valor} - Proporção (Valor/Peso): {item.valor / item.peso}")
         print('=================================================')
     elif opcao == 2:
         os.system('cls' if os.name == 'nt' else 'clear')
@@ -49,11 +55,17 @@ def main():
         print(f"|Capacidade da mochila: {capacidade}          ")
         print(f"|Itens disponíveis: ")
         for item in itens:
-            print(f"|Peso: {item.peso} - Valor: {item.valor}")
+            print(f"|Peso: {item.peso} - Valor: {item.valor} - Proporção (Valor/Peso): {item.valor / item.peso}")
         print('===============================================')
         problema = FractionalKnapsackProblem()
-        valorTotal = problema.fractionalKnapsackProblem(itens, capacidade)
+        valorTotal, itensPertencentes = problema.fractionalKnapsackProblem(itens, capacidade)
         print('\n===============================================')
         print(f"|Valor total obtido: {valorTotal}")
         print('===============================================') 
+
+        print('=================================================')
+        print(f"|Itens pertencentes: ")
+        for(item) in itensPertencentes:
+            print(f"|Peso: {item.peso} - Valor: {item.valor} - Proporção (Valor/Peso): {item.valor / item.peso}")
+        print('=================================================')
 

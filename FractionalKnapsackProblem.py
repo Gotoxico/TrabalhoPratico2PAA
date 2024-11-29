@@ -18,6 +18,7 @@ class FractionalKnapsackProblem:
                     itens[i], itens[j] = itens[j], itens[i] 
 
     def fractionalKnapsackProblem(self, itens, capacidade):
+        itensPertencentes = []
         self._ordenarItensProporcaoValorPeso(itens)
         valorTotal = 0
         pesoAtual = 0
@@ -25,8 +26,10 @@ class FractionalKnapsackProblem:
             if itens[i].peso + pesoAtual <= capacidade:
                 valorTotal += itens[i].valor
                 pesoAtual += itens[i].peso
+                itensPertencentes.append(itens[i])
             else:
                 valorTotal += (capacidade - pesoAtual) * (itens[i].valor / itens[i].peso)
+                itensPertencentes.append(itens[i])
                 break
 
-        return valorTotal
+        return valorTotal, itensPertencentes
