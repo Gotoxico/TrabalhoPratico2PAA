@@ -1,17 +1,9 @@
 from LongestCommonSubsequence import LCS
 import os
 
-LongestCommon = LCS()
-s1 = "CADD"
-s2 = "CBBADED"
-matrix = LongestCommon.getLCS(s1, s2)
-print(matrix[len(s1)][len(s2)])
-
-Lcs = LongestCommon.extrairLCS(s1, s2, matrix)
-print(Lcs)
-
 def main():
     os.system('cls' if os.name == 'nt' else 'clear')
+    LongestCommon = LCS()
     print('===============================================')
     print('| LONGEST COMMON SUBSEQUENCE                  |')
     print('===============================================')

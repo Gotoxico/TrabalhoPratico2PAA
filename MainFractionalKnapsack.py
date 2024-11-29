@@ -2,13 +2,6 @@ from FractionalKnapsackProblem import Item
 from FractionalKnapsackProblem import FractionalKnapsackProblem
 import os
 
-itens = [Item(10, 60), Item(20, 100), Item(30, 120)]
-capacidade = 50
-problema = FractionalKnapsackProblem()
-valorTotal = problema.fractionalKnapsackProblem(itens, capacidade)
-print(f"Valor total obtido: {valorTotal}")
-
-
 def main():
     os.system('cls' if os.name == 'nt' else 'clear')
     print('===============================================')
