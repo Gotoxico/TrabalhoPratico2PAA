@@ -4,7 +4,8 @@ import os
 def main():
     os.system('cls' if os.name == 'nt' else 'clear')
     print('===============================================')
-    print('| ASSIGNMENT PROBLEM (Utilizando grafo com matriz de adjacência para representação) |')
+    print('|ASSIGNMENT PROBLEM (Utilizando grafo com     |')
+    print('|matriz de adjacência para representação)     |')
     print('===============================================')
     print('|1 - Executar teste pronto                    |')
     print('|2 - Inserir dados manualmente                |')
@@ -84,17 +85,16 @@ def main():
 
         for i in range(numeroVertices):
             for j in range(numeroVertices):
-                if i != j:
-                    print('\n===============================================')
-                    print('|1 - Definir aresta de %d -> %d?' % (i, j))
-                    print('|0 - Não adicionar aresta')
-                    print('================================================')
-                    print('Escolha uma opção:')
-                    opcaoAresta = int(input())
-                    if opcaoAresta == 1:
-                        peso = int(input(f'Digite o peso da aresta {i} -> {j}: '))
-                        grafo.adicionarAresta(i, j, peso)
-                        print(f'Aresta {i} -> {j} adicionada com peso {peso}')
+                print('\n===============================================')
+                print('|1 - Definir aresta de %d -> %d?' % (i, j))
+                print('|0 - Não adicionar aresta')
+                print('================================================')
+                print('Escolha uma opção:')
+                opcaoAresta = int(input())
+                if opcaoAresta == 1:
+                    peso = int(input(f'Digite o peso da aresta {i} -> {j}: '))
+                    grafo.adicionarAresta(i, j, peso)
+                    print(f'Aresta {i} -> {j} adicionada com peso {peso}')
 
         grafo.imprimirGrafo()
 

@@ -48,7 +48,7 @@ class Arvore:
         return menor
 
     def _percorreDaRaizAteAFolha(self, folha, caminho=""):
-        if not folha.filhos:  # Only for leaf nodes
+        if not folha.filhos: 
             return {folha.simbolo: caminho}
         else:
             codificacoes = {}
